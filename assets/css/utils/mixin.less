@@ -1,0 +1,40 @@
+.font-family-append (@font, @size) {
+  font-family: @font;
+  font-size: @size;
+}
+
+.text-property (@font, @size, @weight, @fontColor) {
+  .apply-font(@weight, @size, @font);
+  color: @fontColor;
+}
+
+.apply-font(@weight, @size, @font) {
+  font: @arguments;
+}
+
+.round-borders (@radius) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+.box-shadow(@x: 0, @y: 0, @blur: 1px, @color) {
+  box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  -webkit-box-shadow: @arguments;
+}
+
+.position(@position, @top: 0, @right: 0, @bottom: 0, @left: 0) {
+  position: @position;
+  top: @top;
+  right: @right;
+  bottom: @bottom;
+  left: @left;
+}
+.transform(@size) {
+  -webkit-transform: translateZ(@size);
+  -moz-transform: translateZ(@size);
+  -ms-transform: translateZ(@size);
+  -o-transform: translateZ(@size);
+  transform: translateZ(@size);
+}

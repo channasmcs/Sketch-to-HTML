@@ -1,0 +1,178 @@
+@import './utils/colors.less';
+
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+  .header {
+    .logo-section {
+      img {
+        width: 100%;
+      }
+    }
+    .spotting-button {
+      .btn-submit-spotting {
+        .btn-text {
+          display: none;
+        }
+      }
+    }
+  }
+  .plane-spotter-section {
+    .card {
+      .card-body {
+        .detail {
+          position: initial;
+          width: 100%;
+          &.bottom-section {
+            padding-top: 15px;
+          }
+        }
+      }
+      .settings {
+        top: 10px;
+        color: @color-black;
+      }
+      .gallery-image {
+        height: 100%;
+      }
+    }
+  }
+  .plane-spotting-svg {
+    svg {
+      width: 80%;
+    }
+  }
+  .spotting-model {
+    .popup-wrap {
+      .side-nav {
+        &.model-body {
+          .plane-spotting-svg {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
+  .header {
+    .logo-section {
+      width: 60%;
+      img {
+        width: 80%;
+      }
+    }
+  }
+  .spotting-model {
+    .popup-wrap {
+      .side-nav {
+        &.open {
+          width: 60%;
+        }
+        &.model-body {
+          .plane-spotting-svg {
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+
+  .plane-spotter-section {
+    .card {
+      .card-body {
+        .detail {
+          position: unset;
+          &.bottom-section {
+            padding-top: 10px;
+          }
+        }
+      }
+      .settings {
+        top: 10px;
+        color: @color-black;
+      }
+      .gallery-image {
+        height: 100%;
+      }
+    }
+  }
+  .plane-spotting-svg {
+    svg {
+      width: 40%;
+    }
+  }
+}
+
+/* Media Query for Tablets Ipads portrait mode */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .spotting-model {
+    .popup-wrap {
+      .side-nav {
+        &.open {
+          width: 50%;
+        }
+        &.model-body {
+          .plane-spotting-svg {
+            position: relative;
+          }
+        }
+      }
+    }
+  }
+  .plane-spotting-svg {
+    svg {
+      width: 30%;
+    }
+  }
+}
+
+/* Media Query for Laptops and Desktops */
+@media (min-width: 1025px) {
+  .spotting-model {
+    .popup-wrap {
+      .side-nav {
+        &.open {
+          width: 40%;
+          overflow: hidden;
+        }
+        &.model-body {
+          .plane-spotting-svg {
+            svg {
+              width: 30%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .plane-spotting-svg {
+    text-align: right;
+    position: fixed;
+    right: 15px;
+    svg {
+      width: 18%;
+    }
+  }
+  .plane-spotter-section {
+    .card {
+      .settings {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+/* Media Query for Large screens */
+@media (min-width: 1281px) {
+  .spotting-model {
+    .popup-wrap {
+      .side-nav {
+        &.open {
+          width: 35%;
+        }
+      }
+    }
+  }
+}

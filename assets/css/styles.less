@@ -1,0 +1,303 @@
+@import './utils/colors.less';
+@import './utils/fonts.less';
+@import './utils/mixin.less';
+
+:root {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: @color-black;
+  font-size: 100%;
+  #main {
+    position: relative;
+    height: 100%;
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections - header
+--------------------------------------------------------------*/
+
+.header {
+  transition: all 0.5s;
+  padding: 20px 0;
+  .logo-section {
+    box-sizing: border-box;
+    width: 75%;
+    &.border-line {
+      border-bottom: 1px solid @color-gray;
+      opacity: 1;
+      padding-bottom: 14px;
+    }
+  }
+  .spotting-button {
+    .text-property(@font-segoe-semi-bold, 16px/21px, 600, @color-white);
+    text-align: left;
+    letter-spacing: 0px;
+    color: @color-white;
+    opacity: 1;
+    .btn-submit-spotting {
+      color: @color-white;
+      background-color: @color-orange;
+      .text {
+        padding-left: 4px;
+      }
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections - plane spotter
+--------------------------------------------------------------*/
+.plane-spotter-section {
+  .card {
+    border: 1px solid @color-gray;
+    .round-borders(5px);
+    .box-shadow(0px, 0, 30px, @color-gray-shadow);
+    height: 100%;
+    cursor: pointer;
+    .settings {
+      display: flex;
+      .position(absolute, 3px, 10px, unset, unset);
+      cursor: pointer;
+      color: @color-gray;
+      z-index: 1;
+      font-size: 13px;
+      span:first-child {
+        padding-right: 2px;
+      }
+      span:hover {
+        color: @color-orange;
+      }
+    }
+    &:hover {
+      .settings {
+        opacity: 1;
+        &.hover {
+          color: @color-black;
+        }
+      }
+    }
+    .gallery-image {
+      height: 185px;
+      display: block;
+      img {
+        width: 100%;
+      }
+    }
+    .card-body {
+      padding: 14px;
+      position: relative;
+      .detail {
+        padding-right: 14px;
+        position: absolute;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 85%;
+        &.header-section {
+          .register-name {
+            .text-property(@font-segoe-semi-bold, 24px, 600, @color-orange);
+            color: @color-orange;
+            margin-bottom: 1px;
+          }
+          .model {
+            .text-property(@font-segoe-bold, 16px, 700, @color-black);
+            color: @color-black;
+          }
+          .company {
+            display: block;
+          }
+        }
+        &.bottom-section {
+          .font-family-append(@font-segoe-bold, 10px);
+          bottom: 12px;
+          span.item {
+            float: left;
+            display: flex;
+            padding-right: 11px;
+            i {
+              color: @color-gray;
+              padding-right: 5px;
+            }
+          }
+        }
+      }
+    }
+  }
+  #not-found-result {
+    text-align: center;
+    .text-property(@font-open-sans, 15px, 600, @color-gray);
+    padding-top: 4em;
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections - filter 
+--------------------------------------------------------------*/
+.plane-spotter-form {
+  .title-gray {
+    .text-property(@font-open-sans, 24px, 600, @color-gray);
+  }
+  .filter-section {
+    background: @color-gray-lite;
+    .round-borders(10px);
+    padding: 8px 21px 16px 21px;
+    .filter-section-title {
+      .text-property(@font-open-sans, 15px, 600, @color-gray);
+    }
+  }
+}
+
+/*--------------------------------------------------------------
+# Sections - spotting model 
+--------------------------------------------------------------*/
+.spotting-model {
+  .position(fixed, 0, 0, 0, 0);
+  z-index: 9999;
+  padding: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+  .popup-wrap {
+    background-color: rgba(0, 0, 0, 0.8);
+    height: auto;
+    display: block;
+    .side-nav {
+      .position(fixed, 0, 0, unset, unset);
+      z-index: 99999;
+      height: auto;
+      transform: translate3d(100%, 0, 0);
+      transition: transform 0.3s ease-in-out;
+      background: @color-white;
+      clear: both;
+      width: 100%;
+
+      &.open {
+        .position(fixed, 11px, 30px, unset, unset);
+        width: 85%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        .transform(0);
+      }
+      &.model-body {
+        background: @color-white;
+        border: 1px solid @color-gray;
+        .round-borders(10px);
+        padding: 16px 24px;
+        .text-property(@font-open-sans, 12px, 400, @color-gray-text);
+        height: 98%;
+        .model-header {
+          display: flex;
+          border-bottom: 1px solid @color-gray;
+          .title {
+            .text-property(@font-open-sans, 18px, 600, @color-gray);
+            width: 100%;
+          }
+          .close {
+            color: @color-gray;
+            width: 20px;
+            font-size: 14px;
+            text-align: center;
+          }
+        }
+        .model-form {
+          padding: 22px 0px;
+          position: relative;
+          height: 100%;
+          .form-group {
+            padding-bottom: 13px;
+          }
+        }
+        .plane-spotting-svg {
+          text-align: right;
+          .position(absolute, unset, 0px, 40px, 0);
+          z-index: -1;
+          svg {
+            width: 50%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+form {
+  .form-group {
+    label {
+      text-transform: uppercase;
+    }
+    label,
+    input,
+    button,
+    select {
+      .text-property(@font-open-sans, 12px, 400, @color-gray-text);
+    }
+    .form-control {
+      appearance: auto;
+      height: 34px;
+      border: 1px solid @color-gray;
+    }
+    .validationMessage {
+      color: @color-error-text;
+    }
+    .drop-zone {
+      height: 100px;
+      border: 1px solid @color-gray;
+      .round-borders(4px);
+      text-align: center;
+      width: 100%;
+      padding: 5% 0%;
+      cursor: pointer;
+      i {
+        display: block;
+        font-size: 18px;
+      }
+    }
+    .form-location {
+      position: relative;
+      display: block;
+      i {
+        .position(absolute, 9px, 0, unset, unset);
+        width: 8%;
+        margin-right: 3px;
+        height: inherit;
+        background: @color-white;
+        text-align: left;
+      }
+    }
+  }
+  .view-image {
+    max-height: 100px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    img {
+      height: 100%;
+      object-fit: cover;
+      background-color: @color-white;
+    }
+  }
+}
+
+.plane-spotting-svg {
+  .position(relative, unset, 0, 15px, 0);
+  text-align: center;
+  padding-top: 25px;
+  z-index: -1;
+  svg {
+    width: 50%;
+    height: auto;
+  }
+}
+#data-loader {
+  margin-top: 2em;
+}
+
+.btn {
+  &.btn-orange {
+    color: @color-white;
+    background-color: @color-orange;
+  }
+}

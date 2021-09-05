@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+      <title>MyApp - Test </title>
+      <!-- Google Fonts -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+         rel="stylesheet"
+         />
+      <!-- Vendor CSS Files -->
+      <link
+         href="assets/vendor/bootstrap/css/bootstrap.min.css"
+         rel="stylesheet"
+         />
+      <!-- Template Main CSS File -->
+      <link rel="stylesheet/less" type="text/css" href="assets/css/styles.less" />
+      <link rel="stylesheet/less" type="text/css" href="assets/css/media.less" />
+   </head>
+   <body class="container-fluid">
+      <!-- ======= Header ======= -->
+      <header id="header" class="header">
+         <div class="d-flex align-items-center justify-content-between">
+            <div class="logo-section border-line">
+               <a href="#" class="logo align-items-center">
+               <img src="assets/imgs/logo.png" alt="Plane Spotters Logo" />
+               </a>
+            </div>
+            <div class="spotting-button">
+              <a href="#" class="btn btn-orange submit-spotting btn-submit-spotting">
+                <i class="far fa-plus-square"></i>
+                <span class="btn-text">Submit Spotting</span>
+              </a>
+            </div>
+         </div>
+      </header>
+      <!-- End Header -->
+      <main id="main">
+        <section class="plane-spotter-form">
+          <h3 class="title-gray">Latest Photos</h3>
+            <div class="row">
+              <div class="col-sm-12d col-lg-8 col-xl-6">
+                <div class="filter-section">
+                  <h4 class="filter-section-title">FILTERS</h4>
+                  <form id="filters-spott">
+                    <div class="row">
+                      <div class="col-sm-4 col-lg-4">
+                        <div class="form-group">
+                          <label for="filter-make">make</label>
+                          <select 
+                            class="form-control" 
+                            id="filter-make" 
+                            data-bind="
+                            options: makeList,
+                            value:make,
+                            optionsCaption: 'Choose Make'"> 
+                        </select>
+                        </div>
+                      </div>
+                      <div class="col-sm-4 col-lg-4">
+                        <div class="form-group">
+                          <label for="filter-model">model</label>
+                          <select 
+                            class="form-control" 
+                            id="filter-model" 
+                            data-bind="
+                            options: modelList,
+                            value:model,
+                            optionsCaption: 'Choose Model'"> 
+                        </select>
+                        </div>
+                      </div>
+                      <div class="col-sm-4 col-lg-4">
+                        <div class="form-group">
+                          <label for="filter-registation">registation</label>
+                          <input 
+                            type="text" 
+                            class="form-control" 
+                            id="filter-registation" 
+                            placeholder="G-BNLZ"
+                            data-bind="">
+                        </div>
+                      </div>
+                    </div>
+                  </form> 
+                </div>
+              </div>
+            </div>
+        </section>
+
+         <section class="plane-spotter-section">
+            <div class="row">
+              <div id="data-loader" class="d-flex justify-content-center ">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only"></span>
+                </div>
+              </div>
+               <div class="col-lg-9">
+                  <div id="render-spotting-data" class="row d-none" data-bind="foreach:PlaneSpotList">
+                    <div  class="col-sm-6 col-lg-6 col-xl-4 mt-4">
+                      <div class="card " >
+                        <div class="settings"> 
+                          <span 
+                            data-bind="attr: {item: _Id}" 
+                            class="edit-list-item"> 
+                              <i class="far fa-edit"></i>
+                          </span>
+                          <span 
+                            data-bind="attr: {item: _Id}" 
+                            class="delete-list-item"> 
+                              <i class="far fa-trash-alt"></i>
+                          </span>
+                        </div>
+                        <div class="row no-gutters m-0 h-100">
+                            <div class="col-sm-7 p-0">
+                              <span class="gallery-image">                      
+                                <img
+                                class="h-100"
+                                data-bind="attr:{src: _ImageUrl,  alt:_Registation}"
+                              /></span>
+                            </div>
+                            <div class="col-sm-5 p-0">
+                              <div class="card-body h-100">
+                                  <div class="header-section detail">
+                                    <h4 class="register-name" data-bind="text:_Registation"></h5>
+                                    <span class="model"  data-bind="text:_Model"></span>
+                                    <span class="company"><img class="img-fluid"  data-bind="attr:{src: _ModelIcon,  alt:_Model}"/></span>
+                                  </div>
+                                  <div class="bottom-section detail">
+                                    <span class="date item"> <i class="far fa-calendar-alt"></i> <span class="text " data-bind="text:_Date"></span></span>
+                                    <span class="time item"><i class="far fa-clock"></i><span class="text" data-bind="text:_Time">14:16</span></span>
+                                    <span class="location item"><i class="fas fa-map-marker-alt"></i><span class="text"  data-bind="text:_Location">Chennai Airport (MAA)</span></span>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <div class="plane-spotting-svg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="395.688" height="353.054" viewBox="0 0 395.688 353.054">
+             <defs>
+                <style>.a{fill:#e25222;opacity:0.25;}</style>
+             </defs>
+             <path class="a" d="M565.6,166.885a38.909,38.909,0,0,0-33.609-19.4l-61.355,0a38.9,38.9,0,0,0-33.609,19.4L308.73,389.1a38.838,38.838,0,0,0,.015,38.793l30.8,53.244a38.934,38.934,0,0,0,33.623,19.4h53.477a38.917,38.917,0,0,0,33.608-19.406l16.386-28.383a41.831,41.831,0,0,0,5.6-20.9V373.63a5.642,5.642,0,0,0-9-4.532l-89.361,62.289a5.02,5.02,0,0,1-7.328-1.5l-10.415-17.806a7.207,7.207,0,0,1,1.163-8.76l106.96-101.367a26.809,26.809,0,0,0,7.981-19.062V237.931c0-9.035,6.46-30.158,15.016-34.981a8.962,8.962,0,0,1,7.333-.474c9.031,3.692,15.99,26.081,15.99,35.455v44.964a26.814,26.814,0,0,0,7.98,19.062l99.058,101.367a7.207,7.207,0,0,1,1.161,8.76L618.364,429.89a5.024,5.024,0,0,1-7.331,1.5L529.577,369.1a5.642,5.642,0,0,0-9,4.532v58.205a41.873,41.873,0,0,0,5.6,20.9l16.387,28.39a38.9,38.9,0,0,0,33.606,19.4h53.079a39.166,39.166,0,0,0,33.717-19.337l31.01-53.022a38.634,38.634,0,0,0,.108-38.739Z" transform="translate(-303.548 -147.481)"/>
+          </svg>
+       </div>
+      </main>
+      <section class="spotting-model w-100 h-100 d-none">
+        <div class="popup-wrap h-100">
+          <div class="side-nav model-body">
+            <div class="model-header">
+              <h4 class="title">Add New Spotting</h4>
+              <a href="#" class="close"><i class="fas fa-times"></i></a>
+            </div>
+            <div class="model-form">
+              <form  id="filter-form">
+                <script id="customMessageTemplate" type="text/html">
+                  <em class="customMessage" data-bind="validationMessage: field"></em>
+                </script>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="registation">registation</label>
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="registation" 
+                        placeholder="G-BNLZ"
+                        data-bind = "value: registation"
+                      >
+                    </div>
+                  </div>
+                  <div class="col-lg-6"></div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="make">make</label>
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="make" 
+                        placeholder="Boeing"  
+                        data-bind = "value: make"
+                      >
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="model">model</label> 
+                      <input 
+                        type="text" 
+                        class="form-control" 
+                        id="model" 
+                        placeholder="747-400"  
+                        data-bind = "value: model"
+                      >
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group date">
+                      <label for="date">date</label>
+                      <input 
+                        type="date" 
+                        class="form-control" 
+                        id="date"
+                        data-date="" 
+                        data-date-format="MMM D, YYYY"
+                        placeholder="july 02, 2021"  
+                        data-bind = "value: date"
+                      >
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label for="time">time</label>
+                      <input 
+                        type="time" 
+                        class="form-control" 
+                        id="time" 
+                        placeholder="12:15"  
+                        data-bind = "value: time"
+                      >
+                    </div>
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="form-group">
+                      <label for="location">location</label>
+                      <span class="form-location">
+                        <input 
+                          type="text" 
+                          class="form-control" 
+                          id="location"
+                          placeholder="London Gatwick (LGW)"  
+                          data-bind = "value: location"
+                        >
+                        <i class="fas fa-map-marker-alt"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-lg-4"></div>
+                  <div class="col-lg-8">
+                    <div class="form-group">
+                      <label class="drop-zone" for="spotting-image" >
+                        <i class="fas fa-upload"></i> DROP PHOTO HERE OR CLICK TO ADD FILE
+                      </label>
+                      <input 
+                        type="file" 
+                        class="form-control-file d-none" 
+                        id="spotting-image" 
+                        accept="image/*"
+                        data-bind="event:{change: $root.fileUpload, value: image}"
+                      >
+                      
+                    </div>
+                  </div>
+                  <div class="col-lg-4 view-image">
+                    <img data-bind="attr: {src: image || ''}"/>
+                  </div>
+                  <div class="col-lg-2">
+                    <div class="form-group">
+                      <input type="hidden" class="form-control" id="id"  data-bind = "value: id">
+                      <button 
+                        type="submit" 
+                        class="btn btn-orange"  
+                        data-bind='click: submit'
+                      >Submit</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+              <div class="plane-spotting-svg">
+                <svg xmlns="http://www.w3.org/2000/svg" width="395.688" height="353.054" viewBox="0 0 395.688 353.054">
+                   <defs>
+                      <style>.a{fill:#e25222;opacity:0.25;}</style>
+                   </defs>
+                   <path class="a" d="M565.6,166.885a38.909,38.909,0,0,0-33.609-19.4l-61.355,0a38.9,38.9,0,0,0-33.609,19.4L308.73,389.1a38.838,38.838,0,0,0,.015,38.793l30.8,53.244a38.934,38.934,0,0,0,33.623,19.4h53.477a38.917,38.917,0,0,0,33.608-19.406l16.386-28.383a41.831,41.831,0,0,0,5.6-20.9V373.63a5.642,5.642,0,0,0-9-4.532l-89.361,62.289a5.02,5.02,0,0,1-7.328-1.5l-10.415-17.806a7.207,7.207,0,0,1,1.163-8.76l106.96-101.367a26.809,26.809,0,0,0,7.981-19.062V237.931c0-9.035,6.46-30.158,15.016-34.981a8.962,8.962,0,0,1,7.333-.474c9.031,3.692,15.99,26.081,15.99,35.455v44.964a26.814,26.814,0,0,0,7.98,19.062l99.058,101.367a7.207,7.207,0,0,1,1.161,8.76L618.364,429.89a5.024,5.024,0,0,1-7.331,1.5L529.577,369.1a5.642,5.642,0,0,0-9,4.532v58.205a41.873,41.873,0,0,0,5.6,20.9l16.387,28.39a38.9,38.9,0,0,0,33.606,19.4h53.079a39.166,39.166,0,0,0,33.717-19.337l31.01-53.022a38.634,38.634,0,0,0,.108-38.739Z" transform="translate(-303.548 -147.481)"/>
+                </svg>
+             </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Vendor JS Files -->
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/less@4.1.1"></script>
+      <script src="assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+      <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-replace-svg="nest" ></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+      <script src="assets/vendor/knockout/knockout-3.5.1.js"></script>
+      <script src="assets/vendor/knockout/knockout.validation.min.js"></script>
+
+
+      <!-- JS File -->
+      <script  type="text/javascript" src="./assets/js/constant.js"></script>
+      <script  type="text/javascript" src="./assets/js/helper.js"></script>
+      <script  type="text/javascript" src="./assets/js/main.js"></script>
+   </body>
+</html>

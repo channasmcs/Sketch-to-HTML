@@ -1,0 +1,82 @@
+[
+  {
+    "id":1,
+    "registation":"4R-ANB",
+    "make":"Airbus",
+    "model":"A320neo",
+    "date":"2021-08-03",
+    "time":"12:15",
+    "location":"Chennai Airport (MAA)",
+    "image":"./assets/imgs/content/1.jpg"
+  },
+  {
+    "id":2,
+    "registation":"G-BNLZ",
+    "make":"Boeing",
+    "model":"747-436",
+    "date":"2021-06-13",
+    "time":"10:00",
+    "location":"London Gatwick (LGW)",
+    "image":"./assets/imgs/content/2.jpg"
+  },
+  {
+    "id":3,
+    "registation":"VT-CIH",
+    "make":"Airbus",
+    "model":"A320-251N",
+    "date":"2021-01-03",
+    "time":"17:56",
+    "location":"Ho Chi Minh City Tan Son Nhat",
+    "image":"./assets/imgs/content/3.jpg"
+  },
+  {
+    "id":4,
+    "registation":"A7-BAF",
+    "make":"Boeing",
+    "model":"777-300ER",
+    "date":"2021-07-23",
+    "time":"12:00",
+    "location":"Colombo Airport (CMB)",
+    "image":"./assets/imgs/content/4.jpg"
+  },
+  {
+    "id":5,
+    "registation":"B-KPND",
+    "make":"Boeing",
+    "model":"777-367ER",
+    "date":"2021-07-11",
+    "time":"20:15",
+    "location":"Osaka Kansai (KIX)",
+    "image":"./assets/imgs/content/5.jpg"
+  },
+  {
+    "id":6,
+    "registation":"4R-ANB",
+    "make":"Airbus",
+    "model":"A320neo",
+    "date":"2021-08-04",
+    "time":"14:16",
+    "location":"Chennai Airport (MAA)",
+    "image":"./assets/imgs/content/6.jpg"
+  },
+  {
+    "id":7,
+    "registation":"G-BNLZ",
+    "make":"Boeing",
+    "model":"747-436",
+    "date":"2021-07-11",
+    "time":"10:00",
+    "location":"London Gatwick (LGW)",
+    "image":"./assets/imgs/content/7.jpg"
+  },
+  {
+    "id":8,
+    "registation":"VT-CIH",
+    "make":"Airbus",
+    "model":"A320-251N",
+    "date":"2021-07-21",
+    "time":"17:56",
+    "location":"Ho Chi Minh City Tan Son Nhat",
+    "image":"./assets/imgs/content/8.jpg"
+  }
+]
